@@ -1,0 +1,181 @@
+\documentclass[final]{beamer}
+\usepackage[size=a0,scale=1.25]{beamerposter}
+
+% ================== NGÔN NGỮ & FONT ==================
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{mathptmx} % Times New Roman
+
+% ================== GÓI HỖ TRỢ ==================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{qrcode}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% ================== MÀU SẮC ==================
+\definecolor{mainblue}{RGB}{0,51,102}
+\definecolor{lightblue}{RGB}{230,242,255}
+\definecolor{darkgray}{RGB}{60,60,60}
+
+\setbeamercolor{block title}{fg=white,bg=mainblue}
+\setbeamercolor{block body}{fg=black,bg=lightblue}
+\setbeamercolor{normal text}{fg=darkgray}
+
+% ================== FONT SIZE ==================
+\setbeamerfont{block title}{size=\Large,series=\bfseries}
+\setbeamerfont{block body}{size=\large}
+
+% ================== BẮT ĐẦU DOCUMENT ==================
+\begin{document}
+\begin{frame}[t]
+
+% =====================================================
+% ================== TITLE CÓ NỀN =====================
+% =====================================================
+\begin{beamercolorbox}[
+    wd=\textwidth,
+    sep=1.1cm,
+    center
+]{block title}
+
+% ---------- LOGO ----------
+\begin{column}{0.15\textwidth}
+\centering
+\includegraphics[width=9cm]{logoCTU.png}
+\end{column}
+
+{\Huge\bfseries Tối ưu hóa Xử lý Dữ liệu Phân tán trong Hệ thống Thông tin Hiện đại \par}
+
+\vspace{0.6cm}
+
+{\Large Trần Vũ Khiêm \par}
+
+\vspace{0.3cm}
+
+{\large
+Trường Công nghệ Thông tin \& Truyền thông -- Đại học Cần Thơ \\
+\textbf{Giảng viên hướng dẫn:} PGS.TS Nguyễn Thanh Hải
+}
+
+\end{beamercolorbox}
+
+% ----- GIẢM KHOẢNG CÁCH GIỮA TITLE VÀ NỘI DUNG -----
+\vspace{0.6cm}
+
+% =====================================================
+% ================== NỘI DUNG 3 CỘT ===================
+% =====================================================
+\begin{columns}[t,totalwidth=\textwidth]
+
+% ================== CỘT 1 ==================
+\begin{column}{0.32\textwidth}
+
+\begin{block}{Giới thiệu vấn đề}
+Trong bối cảnh chuyển đổi số và sự bùng nổ của dữ liệu lớn (Big Data), các hệ thống thông tin hiện đại
+phải xử lý dữ liệu phân tán và dữ liệu luồng thời gian thực với hiệu năng cao.
+Tối ưu hóa truy vấn và khả năng mở rộng là những thách thức quan trọng trong các kiến trúc hiện đại.
+\end{block}
+
+\begin{block}{Mục tiêu nghiên cứu}
+\begin{itemize}
+    \item Phân tích các kỹ thuật xử lý dữ liệu phân tán
+    \item Đánh giá hiệu năng xử lý luồng dữ liệu
+    \item So sánh các nền tảng phổ biến
+    \item Đề xuất hướng phát triển hệ thống
+\end{itemize}
+\end{block}
+
+\begin{block}{Phương pháp nghiên cứu}
+\begin{itemize}
+    \item Nghiên cứu tài liệu khoa học (Google Scholar, IEEE)
+    \item Phân tích kiến trúc hệ thống
+    \item Tổng hợp và đánh giá kết quả
+\end{itemize}
+\end{block}
+
+\end{column}
+
+% ================== CỘT 2 ==================
+\begin{column}{0.34\textwidth}
+
+\begin{block}{Kết quả chính}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.9\linewidth,
+    height=8cm,
+    ylabel={Thông lượng (events/s)},
+    xlabel={Framework},
+    symbolic x coords={Storm,Spark,Flink},
+    xtick=data,
+    ymin=0,
+    bar width=25pt,
+    nodes near coords
+]
+\addplot coordinates {(Storm,450) (Spark,700) (Flink,850)};
+\end{axis}
+\end{tikzpicture}
+
+\vspace{0.5cm}
+
+\begin{tabular}{lccc}
+\toprule
+\textbf{Framework} & \textbf{Latency (ms)} & \textbf{Mức hiệu năng} \\
+\midrule
+Storm & 120 & Trung bình \\
+Spark & 90 & Cao \\
+Flink & 60 & Rất cao \\
+\bottomrule
+\end{tabular}
+\end{block}
+
+\begin{block}{Phân tích / Thảo luận}
+Apache Flink cho thấy hiệu năng vượt trội về độ trễ và khả năng xử lý thời gian thực.
+Spark Streaming phù hợp với các hệ thống kết hợp batch và streaming.
+Storm đơn giản nhưng kém hiệu quả trong môi trường dữ liệu lớn.
+\end{block}
+
+\end{column}
+
+% ================== CỘT 3 ==================
+\begin{column}{0.32\textwidth}
+
+\begin{block}{Kết luận \& Hướng phát triển}
+Nghiên cứu cho thấy việc tối ưu hóa xử lý dữ liệu phân tán đóng vai trò quan trọng
+trong hệ thống thông tin hiện đại.
+Hướng phát triển trong tương lai bao gồm:
+\begin{itemize}
+    \item Tích hợp AI trong tối ưu truy vấn
+    \item Ứng dụng thực tế trong Chính phủ số
+    \item Nâng cao hiệu quả tài nguyên hệ thống
+\end{itemize}
+\end{block}
+
+\begin{block}{Tài liệu tham khảo (IEEE)}
+\begin{itemize}
+    \item[1] I. Elghandour et al., ``Incremental Techniques for Large-Scale Dynamic Query Processing,'' arXiv, 2019.
+    \item[2] S. Henning, W. Hasselbring, ``Scalability Benchmarking of Stream Processing,'' arXiv, 2020.
+    \item[3] H. Nasiri et al., ``Evaluation of Stream Processing Frameworks,'' Journal of Big Data, 2019.
+\end{itemize}
+\end{block}
+
+\begin{block}{Liên hệ \& QR Code}
+\centering
+\qrcode[height=4cm]{https://github.com/khiem0707/m2525026-tran-vu-khiem_BTH4_YC2}
+
+\vspace{0.4cm}
+\textbf{Email:} khiemM2525026@gstudent.ctu.edu.vn \\
+\textbf{GitHub:} https://github.com/khiem0707/m2525026-tran-vu-khiem_BTH4_YC2
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+\end{document}
